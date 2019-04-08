@@ -1,0 +1,30 @@
+﻿<Window x:Class="QuadtreeVisualization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuadtreeVisualization"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="700">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="150"/>
+		</Grid.ColumnDefinitions>
+		<Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Width="505" Height="505" SnapsToDevicePixels="True">
+			<Grid HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="gMain" Margin="0">
+				<Canvas Name="cMainCanvas" Background="#f0f0f0" Height="500" Width="500" MouseLeftButtonUp="Canvas_MouseLeftButtonUp" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseMove="Canvas_MouseMove" />
+				<Canvas Background="Transparent" IsHitTestVisible="false" HorizontalAlignment="Center" Height="500" VerticalAlignment="Center" Width="500"  ClipToBounds="True" >
+					<Rectangle Canvas.Top="{Binding SelectionRectangleTop}" Canvas.Left="{Binding SelectionRectangleLeft}" Stroke="Black" Height="{Binding SelectionRectangleHeight}" Width="{Binding SelectionRectangleWidth}" Visibility="{Binding SelectionRectangleVisibility}" StrokeThickness="1" />
+				</Canvas>
+			</Grid>
+		</Border>
+		<StackPanel Grid.Column="1" Orientation="Vertical">
+			<Button x:Name="bClear" Content="Clear" Height="30" Margin="5" Click="ClearButton_Click" />
+			<CheckBox x:Name="cbNeighbourSearch" Content="Neighbours search" Margin="5" Click="CheckBox_Click"/>
+			<Button Content="Deselect" Height="30" Margin="5" Click="DeselectButton_Click" />
+			<Button Content="Add Random" Height="30" Margin="5" Click="AddRandomButton_Click" />
+			<Button Content="Exit" Height="30" Margin="5" Click="ExitButton_Click" />
+		</StackPanel>
+	</Grid>
+</Window>
