@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -274,8 +274,8 @@ namespace QuadTreePoint
 					node = in_current_node.Data;
 					while(true)
 					{
-						if (in_node_to_insert.Data.X == node.Data.X && in_node_to_insert.Data.Y == node.Data.Y)
-							throw new ArgumentException("Key already exists");
+            if (Math.Abs(in_node_to_insert.Data.X - node.Data.X) <= float.Epsilon && Math.Abs(in_node_to_insert.Data.Y - node.Data.Y) <= float.Epsilon)
+              throw new ArgumentException("Key already exists");
 
 						item_count++;
 
